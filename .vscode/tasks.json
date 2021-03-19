@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build grammar",
+            "type": "shell",
+            // "command": "CC=clang CXX=clang++ npm run build",
+            "command": "time tree-sitter generate && CC=clang CXX=clang++ node-gyp build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run test",
+            "type": "shell",
+            "command": "time tree-sitter test",
+            "problemMatcher": [],
+            "group": "test",
+        },
+        {
+            "label": "Run test update",
+            "type": "shell",
+            "command": "time tree-sitter test -u",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+        }
+    ]
+}

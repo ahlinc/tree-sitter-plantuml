@@ -1,0 +1,4278 @@
+================================================================================
+Basic examples
+================================================================================
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+- Basic examples - 1
+================================================================================
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob:
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name)))))
+
+================================================================================
+Declaring participant
+================================================================================
+
+@startuml
+participant participant as Foo
+actor       actor       as Foo1
+boundary    boundary    as Foo2
+control     control     as Foo3
+entity      entity      as Foo4
+database    database    as Foo5
+collections collections as Foo6
+queue       queue       as Foo7
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo -> Foo5 : To database
+Foo -> Foo6 : To collections
+Foo -> Foo7: To queue
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+- Declaring participant - 1
+================================================================================
+
+@startuml
+participant participant as Foo
+
+actor       actor       as Foo1
+Foo -> Foo1 : To actor
+
+boundary    boundary    as Foo2
+Foo -> Foo2 : To boundary
+
+control     control     as Foo3
+Foo -> Foo3 : To control
+
+entity      entity      as Foo4
+Foo -> Foo4 : To entity
+
+database    database    as Foo5
+Foo -> Foo5 : To database
+
+collections collections as Foo6
+Foo -> Foo6 : To collections
+
+queue       queue       as Foo7
+Foo -> Foo7: To queue
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Declaring participant - with comments and colors
+================================================================================
+
+@startuml
+actor Bob #red
+' The only difference between actor
+'and participant is the drawing
+participant Alice
+participant "I have a really\nlong name" as L #99FF99
+/' You can also declare:
+   participant L as "I have a really\nlong name"  #99FF99
+  '/
+
+Alice->Bob: Authentication Request
+Bob->Alice: Authentication Response
+Bob->L: Log transaction
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (color))
+    (comment)
+    (comment)
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name))
+      (color))
+    (comment)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Declaring participant - order
+================================================================================
+
+@startuml
+participant Last order 30
+participant Middle order 20
+participant First order 10
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (order))
+    (participant_declaration
+      (participant
+        (name))
+      (order))
+    (participant_declaration
+      (participant
+        (name))
+      (order))))
+
+================================================================================
+Use non-letters in participants
+================================================================================
+
+@startuml
+Alice -> "Bob()" : Hello
+"Bob()" -> "This is very\nlong" as Long
+' You can also declare:
+' "Bob()" -> Long as "This is very\nlong"
+Long --> "Bob()" : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (quoted_name))
+      (description))
+    (message
+      (participant
+        (quoted_name))
+      (right_arrow)
+      (participant
+        (quoted_name)
+        (name)))
+    (comment)
+    (comment)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (quoted_name))
+      (description))))
+
+================================================================================
+Message to Self
+================================================================================
+
+@startuml
+Alice->Alice: This is a signal to self.\nIt also demonstrates\nmultiline \ntext
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Text alignment - Text of response message below the arrow
+================================================================================
+
+@startuml
+skinparam responseMessageBelowArrow true
+Bob -> Alice : hello
+Alice -> Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Change arrow style
+================================================================================
+
+@startuml
+Bob ->x Alice
+Bob -> Alice
+Bob ->> Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+
+Bob ->o Alice
+Bob o\\-- Alice
+
+Bob <-> Alice
+Bob <->o Alice
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (bidi_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (bidi_arrow)
+      (participant
+        (name)))))
+
+================================================================================
+Change arrow color
+================================================================================
+
+@startuml
+Bob -[#red]> Alice : hello
+Alice -[#0000FF]->Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow
+        (color))
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow
+        (color))
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Message sequence numbering #1
+================================================================================
+
+@startuml
+autonumber
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Message sequence numbering #2
+================================================================================
+
+@startuml
+autonumber
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+
+autonumber 15
+Bob -> Alice : Another authentication Request
+Bob <- Alice : Another authentication Response
+
+autonumber 40 10
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Message sequence numbering #3
+================================================================================
+
+@startuml
+autonumber "<b>[000]"
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+
+autonumber 15 "<b>(<u>##</u>)"
+Bob -> Alice : Another authentication Request
+Bob <- Alice : Another authentication Response
+
+autonumber 40 10 "<font color=red><b>Message 0  "
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Message sequence numbering #4
+================================================================================
+
+@startuml
+autonumber 10 10 "<b>[000]"
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+
+autonumber stop
+Bob -> Alice : dummy
+
+autonumber resume "<font color=red><b>Message 0  "
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+
+autonumber stop
+Bob -> Alice : dummy
+
+autonumber resume 1 "<font color=blue><b>Message 0  "
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (autonumber)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Page Title, Header and Footer
+================================================================================
+
+@startuml
+
+header Page Header
+footer Page %page% of %lastpage%
+
+title Example Title
+
+Alice -> Bob : message 1
+Alice -> Bob : message 2
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (page_header)
+    (page_footer)
+    (page_title)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Splitting diagrams
+================================================================================
+
+@startuml
+
+Alice -> Bob : message 1
+Alice -> Bob : message 2
+
+newpage
+
+Alice -> Bob : message 3
+Alice -> Bob : message 4
+
+newpage A title for the\nlast page
+
+Alice -> Bob : message 5
+Alice -> Bob : message 6
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (newpage)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (newpage
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+===
+--- Grouping message
+===
+
+@startuml
+Alice -> Bob: Authentication Request
+
+alt successful case
+
+    Bob -> Alice: Authentication Accepted
+
+else some kind of failure
+
+    Bob -> Alice: Authentication Failure
+    group My own label
+    Alice -> Log : Log attack start
+        loop 1000 times
+            Alice -> Bob: DNS Attack
+        end
+    Alice -> Log : Log attack end
+    end
+
+else Another type of failure
+
+   Bob -> Alice: Please repeat
+
+end
+@enduml
+
+---
+
+(NULL)
+
+===
+--- Secondary group label
+===
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Failure
+group My own label [My own label 2]
+    Alice -> Log : Log attack start
+    loop 1000 times
+        Alice -> Bob: DNS Attack
+    end
+    Alice -> Log : Log attack end
+end
+@enduml
+
+---
+
+(NULL)
+
+================================================================================
+Notes on messages
+================================================================================
+
+@startuml
+Alice->Bob : hello
+note left: this is a first note
+
+Bob->Alice : ok
+note right: this is another note
+
+Bob->Bob : I am thinking
+note left
+a note
+can also be defined
+on several lines
+end note
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description
+        (line)
+        (line)
+        (line)))))
+
+================================================================================
+- Notes on messages - aligned descriptions
+================================================================================
+
+@startuml
+Alice->Bob : hello
+note left:   this is a first note
+
+
+Bob->Alice : ok
+note right:  this is another note
+
+
+Bob->Bob :   I am thinking
+note left
+    a note
+    can also be defined
+    on several lines
+end note
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        ref: (name))
+      (right_arrow)
+      (participant
+        ref: (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        ref: (name))
+      (right_arrow)
+      (participant
+        ref: (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        ref: (name))
+      (right_arrow)
+      (participant
+        ref: (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description
+        (line)
+        (line)
+        (line)))))
+
+================================================================================
+Some other notes
+================================================================================
+
+@startuml
+participant Alice
+participant Bob
+note left of Alice #aqua
+This is displayed
+left of Alice.
+end note
+
+note right of Alice: This is displayed right of Alice.
+
+note over Alice: This is displayed over Alice.
+
+note over Alice, Bob #FFAAAA: This is displayed\n over Bob and Alice.
+
+note over Bob, Alice
+This is yet another
+example of
+a long note.
+end note
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (note
+      (position
+        (layout)
+        (participant))
+      (color)
+      (description
+        (line)
+        (line)))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant)
+        (participant))
+      (color)
+      (description))
+    (note
+      (position
+        (layout)
+        (participant)
+        (participant))
+      (description
+        (line)
+        (line)
+        (line)))))
+
+================================================================================
+Changing notes shape [hnote, rnote]
+================================================================================
+
+@startuml
+caller -> server : conReq
+hnote over caller : idle
+caller <- server : conConf
+rnote over server
+ "r" as rectangle
+ "h" as hexagon
+endrnote
+rnote over server
+ this is
+ on several
+ lines
+endrnote
+hnote over caller
+ this is
+ on several
+ lines
+endhnote
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (hnote
+      (position
+        (layout)
+        (participant))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))
+    (rnote
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)))
+    (rnote
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)
+        (line)))
+    (hnote
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)
+        (line)))))
+
+================================================================================
+Note over all participants [across]
+================================================================================
+
+@startuml
+Alice->Bob:m1
+Bob->Charlie:m2
+note over Alice, Charlie: Old method for note over all part. with:\n ""note over //FirstPart, LastPart//"".
+note across: New method with:\n""note across""
+Bob->Alice
+hnote across:Note across all part.
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant)
+        (participant))
+      (description))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (hnote
+      (position
+        (layout))
+      (description))))
+
+================================================================================
+Several notes aligned at the same level [/] #1
+================================================================================
+
+@startuml
+note over Alice : initial state of Alice
+note over Bob : initial state of Bob
+Bob -> Alice : hello
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (note
+      (position
+        (layout)
+        (participant))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Several notes aligned at the same level [/] #2
+================================================================================
+
+@startuml
+note over Alice : initial state of Alice
+/ note over Bob : initial state of Bob
+Bob -> Alice : hello
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (note
+      (position
+        (layout)
+        (participant))
+      (description))
+    (note
+      (align)
+      (position
+        (layout)
+        (participant))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Creole and HTML
+================================================================================
+
+@startuml
+participant Alice
+participant "The **Famous** Bob" as Bob
+
+Alice -> Bob : hello --there--
+... Some ~~long delay~~ ...
+Bob -> Alice : ok
+note left
+  This is **bold**
+  This is //italics//
+  This is ""monospaced""
+  This is --stroked--
+  This is __underlined__
+  This is ~~waved~~
+end note
+
+Alice -> Bob : A //well formatted// message
+note right of Alice
+ This is <back:cadetblue><size:18>displayed</size></back>
+ __left of__ Alice.
+end note
+note left of Bob
+ <u:red>This</u> is <color #118888>displayed</color>
+ **<color purple>left of</color> <s:red>Alice</strike> Bob**.
+end note
+note over Alice, Bob
+ <w:#FF33FF>This is hosted</w> by <img sourceforge.jpg>
+end note
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (delay
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description
+        (line)
+        (line)
+        (line)
+        (line)
+        (line)
+        (line)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)))
+    (note
+      (position
+        (layout)
+        (participant)
+        (participant))
+      (description
+        (line)))))
+
+================================================================================
+- Creole and HTML
+================================================================================
+
+@startuml
+participant Alice
+participant "The **Famous** Bob" as Bob
+
+note right of Bob #silver :               Foo bar
+
+Alice -> Bob : hello --there--
+... Some ~~long delay~~ ...
+Bob -> Alice : ok
+note left
+  This is **bold**
+    This is //italics//
+        This is ""monospaced""
+            This is --stroked--
+                This is __underlined__
+    This is ~~waved~~
+end note
+
+Alice -> Bob : A //well formatted// message
+note right of Alice
+ This is <back:cadetblue><size:18>displayed</size></back>
+ __left of__ Alice.
+end note
+note left of Bob
+ <u:red>This</u> is <color #118888>displayed</color>
+ **<color purple>left of</color> <s:red>Alice</strike> Bob**.
+end note
+note over Alice, Bob
+ <w:#FF33FF>This is hosted</w> by <img sourceforge.jpg>
+end note
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (note
+      (position
+        (layout)
+        (participant))
+      (color)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (delay
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout))
+      (description
+        (line)
+        (line)
+        (line)
+        (line)
+        (line)
+        (line)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)))
+    (note
+      (position
+        (layout)
+        (participant))
+      (description
+        (line)
+        (line)))
+    (note
+      (position
+        (layout)
+        (participant)
+        (participant))
+      (description
+        (line)))))
+
+================================================================================
+Divider or separator
+================================================================================
+
+@startuml
+
+== Initialization ==
+
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+== Repetition ==
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (divider
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (divider
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (left_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Reference
+================================================================================
+
+@startuml
+participant Alice
+actor Bob
+
+ref over Alice, Bob : init
+
+Alice -> Bob : hello
+
+ref over Bob
+  This can be on
+  several lines
+end ref
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (reference
+      (participant)
+      (participant)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (reference
+      (participant)
+      (description
+        (line)
+        (line)))))
+
+================================================================================
+Delay
+================================================================================
+
+@startuml
+
+Alice -> Bob: Authentication Request
+...
+Bob --> Alice: Authentication Response
+...5 minutes later...
+Bob --> Alice: Good Bye !
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (delay)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (delay
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Text wrapping
+================================================================================
+
+@startuml
+skinparam maxMessageSize 50
+participant a
+participant b
+a -> b :this\nis\nmanually\ndone
+a -> b :this is a very long message on several words
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Space
+================================================================================
+
+@startuml
+
+Alice -> Bob: message 1
+Bob --> Alice: ok
+|||
+Alice -> Bob: message 2
+Bob --> Alice: ok
+||45||
+Alice -> Bob: message 3
+Bob --> Alice: ok
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (space)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (space
+      (pixels))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Lifeline Activation and Destruction #1
+================================================================================
+
+@startuml
+participant User
+
+User -> A: DoWork
+activate A
+
+A -> B: << createRequest >>
+activate B
+
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+
+B --> A: RequestCreated
+deactivate B
+
+A -> User: Done
+deactivate A
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (destroy
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))))
+
+================================================================================
+Lifeline Activation and Destruction #2
+================================================================================
+
+@startuml
+participant User
+
+User -> A: DoWork
+activate A #FFBBBB
+
+A -> A: Internal call
+activate A #DarkSalmon
+
+A -> B: << createRequest >>
+activate B
+
+B --> A: RequestCreated
+deactivate B
+deactivate A
+A -> User: Done
+deactivate A
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant)
+      (color))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant)
+      (color))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))
+    (deactivate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))))
+
+================================================================================
+Lifeline Activation and Destruction #3
+================================================================================
+
+@startuml
+autoactivate on
+alice -> bob : hello
+bob -> bob : self call
+bill -> bob #005500 : hello from thread 2
+bob -> george ** : create
+return done in thread 2
+return rc
+bob -> george !! : delete
+return success
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (autoactivate)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (color)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (create)
+      (description))
+    (return
+      (message)
+      (scope))
+    (return
+      (message))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (destroy)
+      (description))
+    (return
+      (message))))
+
+================================================================================
+Return
+================================================================================
+
+@startuml
+Bob -> Alice : hello
+activate Alice
+Alice -> Alice : some action
+return bye
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (return
+      (message))))
+
+================================================================================
+Participant creation
+================================================================================
+
+@startuml
+Bob -> Alice : hello
+
+create Other
+Alice -> Other : new
+
+create control String
+Alice -> String
+note right : You can also put notes!
+
+Alice --> Bob : ok
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (create
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (create
+      (participant_declaration
+        (participant
+          (name))))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (note
+      (position
+        (layout))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Shortcut syntax for activation, deactivation, creation #1
+================================================================================
+
+@startuml
+alice -> bob ++ : hello
+bob -> bob ++ : self call
+bob -> bib ++  #005500 : hello
+bob -> george ** : create
+return done
+return rc
+bob -> george !! : delete
+return success
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (activate)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (activate)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (activate)
+      (color)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (create)
+      (description))
+    (return
+      (message))
+    (return
+      (message))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (destroy)
+      (description))
+    (return
+      (message))))
+
+================================================================================
+Shortcut syntax for activation, deactivation, creation #2
+================================================================================
+
+@startuml
+alice   ->  bob     ++   : hello1
+bob     ->  charlie --++ : hello2
+charlie --> alice   --   : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (activate)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (deactivate)
+      (activate)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (deactivate)
+      (description))))
+
+================================================================================
+Shortcut syntax for activation, deactivation, creation #3
+================================================================================
+
+
+@startuml
+alice -> bob   --++ #gold: hello
+bob   -> alice --++ #gold: you too
+alice -> bob   --: step1
+alice -> bob   : step2
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (deactivate)
+      (activate)
+      (color)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (deactivate)
+      (activate)
+      (color)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (deactivate)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Incoming and outgoing messages #1
+================================================================================
+
+@startuml
+[-> A: DoWork
+
+activate A
+
+A -> A: Internal call
+activate A
+
+A ->] : << createRequest >>
+
+A<--] : RequestCreated
+deactivate A
+[<- A: Done
+deactivate A
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (deactivate
+      (participant))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))))
+
+================================================================================
+Incoming and outgoing messages #2
+================================================================================
+
+@startuml
+participant Alice
+participant Bob #lightblue
+Alice -> Bob
+Bob -> Carol
+...
+[-> Bob
+[o-> Bob
+[o->o Bob
+[x-> Bob
+...
+[<- Bob
+[x<- Bob
+...
+Bob ->]
+Bob ->o]
+Bob o->o]
+Bob ->x]
+...
+Bob <-]
+Bob x<-]
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (color))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name)))
+    (delay)
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (delay)
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (message
+      (left_io_arrow)
+      (participant
+        (name)))
+    (delay)
+    (message
+      (participant
+        (name))
+      (right_io_arrow))
+    (message
+      (participant
+        (name))
+      (right_io_arrow))
+    (message
+      (participant
+        (name))
+      (right_io_arrow))
+    (message
+      (participant
+        (name))
+      (right_io_arrow))
+    (delay)
+    (message
+      (participant
+        (name))
+      (right_io_arrow))
+    (message
+      (participant
+        (name))
+      (right_io_arrow))))
+
+================================================================================
+Short arrows for incoming and outgoing messages
+================================================================================
+
+@startuml
+?-> Alice    : ""?->""\n**short** to actor1
+[-> Alice    : ""[->""\n**from start** to actor1
+[-> Bob      : ""[->""\n**from start** to actor2
+?-> Bob      : ""?->""\n**short** to actor2
+Alice ->]    : ""->]""\nfrom actor1 **to end**
+Alice ->?    : ""->?""\n**short** from actor1
+Alice -> Bob : ""->"" \nfrom actor1 to actor2
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Anchors and Duration
+================================================================================
+
+@startuml
+!pragma teoz true
+
+{start} Alice -> Bob : start doing things during duration
+Bob -> Max : something
+Max -> Bob : something else
+{end} Bob -> Alice : finish
+
+{start} <-> {end} : some time
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (pragma)
+    (message
+      (anchor
+        (name))
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (anchor
+        (name))
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (duration
+      (anchor
+        (name))
+      (bidi_arrow)
+      (anchor
+        (name))
+      (description))))
+
+================================================================================
+Stereotypes and Spots #1
+================================================================================
+
+@startuml
+
+participant "Famous Bob" as Bob << Generated >>
+participant Alice << (C,#ADD1B2) Testable >>
+
+Bob->Alice: First message
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)
+        (stereotype
+          (description))))
+    (participant_declaration
+      (participant
+        (name)
+        (stereotype
+          (spot
+            (char)
+            (color))
+          (description))))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Stereotypes and Spots #2
+================================================================================
+
+@startuml
+
+skinparam guillemet false
+participant "Famous Bob" as Bob << Generated >>
+participant Alice << (C,#ADD1B2) Testable >>
+
+Bob->Alice: First message
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)
+        (stereotype
+          (description))))
+    (participant_declaration
+      (participant
+        (name)
+        (stereotype
+          (spot
+            (char)
+            (color))
+          (description))))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Stereotypes and Spots #3
+================================================================================
+
+@startuml
+
+participant Bob << (C,#ADD1B2) >>
+participant Alice << (C,#ADD1B2) >>
+
+Bob->Alice: First message
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)
+        (stereotype
+          (spot
+            (char)
+            (color))
+          (description))))
+    (participant_declaration
+      (participant
+        (name)
+        (stereotype
+          (spot
+            (char)
+            (color))
+          (description))))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+More information on titles #1
+================================================================================
+
+@startuml
+
+title __Simple__ **communication** example
+
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (page_title)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+More information on titles #2
+================================================================================
+
+@startuml
+
+title __Simple__ communication example\non several lines
+
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (page_title)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+More information on titles #3
+================================================================================
+
+@startuml
+
+title
+ <u>Simple</u> communication example
+ on <i>several</i> lines and using <font color=red>html</font>
+ This is hosted by <img:sourceforge.jpg>
+end title
+
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (page_title
+      (line)
+      (line)
+      (line))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Participants encompass
+================================================================================
+
+@startuml
+
+box "Internal Service" #LightBlue
+participant Bob
+participant Alice
+end box
+participant Other
+
+Bob -> Alice : hello
+Alice -> Other : hello
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (box
+      (quoted_name)
+      (color)
+      (participant_declaration
+        (participant
+          (name)))
+      (participant_declaration
+        (participant
+          (name))))
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Removing Foot Boxes
+================================================================================
+
+@startuml
+
+hide footbox
+title Foot Box removed
+
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (hide
+      (value))
+    (page_title)
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Skinparam #1
+================================================================================
+
+@startuml
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+skinparam sequenceParticipant underline
+
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+
+User -> A: DoWork
+activate A
+
+A -> B: Create Request
+activate B
+
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+
+B --> A: Request Created
+deactivate B
+
+A --> User: Done
+deactivate A
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (skinparam
+      (name)
+      (value))
+    (skinparam
+      (name)
+      (value))
+    (skinparam
+      (name)
+      (value))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (destroy
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))))
+
+================================================================================
+Skinparam #2
+================================================================================
+
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBorderColor blue
+LifeLineBackgroundColor #A9DCDF
+
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+
+ActorBackgroundColor aqua
+ActorFontColor DeepSkyBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+
+User -> A: DoWork
+activate A
+
+A -> B: Create Request
+activate B
+
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+
+B --> A: Request Created
+deactivate B
+
+A --> User: Done
+deactivate A
+
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (color))
+    (skinparam
+      (name)
+      (value))
+    (skinparam
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (color)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (color)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (value)
+      (name)
+      (value))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (quoted_name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (activate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (destroy
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (deactivate
+      (participant))))
+
+================================================================================
+Changing padding
+================================================================================
+
+@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+
+box "Foo1"
+participant Alice1
+participant Alice2
+end box
+box "Foo2"
+participant Bob1
+participant Bob2
+end box
+Alice1 -> Bob1 : hello
+Alice1 -> Out : out
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (skinparam
+      (name)
+      (value))
+    (box
+      (quoted_name)
+      (participant_declaration
+        (participant
+          (name)))
+      (participant_declaration
+        (participant
+          (name))))
+    (box
+      (quoted_name)
+      (participant_declaration
+        (participant
+          (name)))
+      (participant_declaration
+        (participant
+          (name))))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Appendix: Examples of all arrow type - Normal arrow
+================================================================================
+
+@startuml
+participant Alice as a
+participant Bob   as b
+a ->     b : ""->   ""
+a ->>    b : ""->>  ""
+a -\     b : ""-\   ""
+a -\\    b : ""-\\\\""
+a -/     b : ""-/   ""
+a -//    b : ""-//  ""
+a ->x    b : ""->x  ""
+a x->    b : ""x->  ""
+a o->    b : ""o->  ""
+a ->o    b : ""->o  ""
+a o->o   b : ""o->o ""
+a <->    b : ""<->  ""
+a o<->o  b : ""o<->o""
+a x<->x  b : ""x<->x""
+a ->>o   b : ""->>o ""
+a -\o    b : ""-\o  ""
+a -\\o   b : ""-\\\\o""
+a -/o    b : ""-/o  ""
+a -//o   b : ""-//o ""
+a x->o   b : ""x->o ""
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (bidi_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (bidi_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (bidi_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Appendix: Examples of all arrow type - Incoming messages (with '[')
+================================================================================
+
+@startuml
+participant Alice as a
+participant Bob   as b
+[->      b : ""[->   ""
+[->>     b : ""[->>  ""
+[-\      b : ""[-\   ""
+[-\\     b : ""[-\\\\""
+[-/      b : ""[-/   ""
+[-//     b : ""[-//  ""
+[->x     b : ""[->x  ""
+[x->     b : ""[x->  ""
+[o->     b : ""[o->  ""
+[->o     b : ""[->o  ""
+[o->o    b : ""[o->o ""
+[<->     b : ""[<->  ""
+[o<->o   b : ""[o<->o""
+[x<->x   b : ""[x<->x""
+[->>o    b : ""[->>o ""
+[-\o     b : ""[-\o  ""
+[-\\o    b : ""[-\\\\o""
+[-/o     b : ""[-/o  ""
+[-//o    b : ""[-//o ""
+[x->o    b : ""[x->o ""
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Appendix: Examples of all arrow type - Outgoing messages (with ']')
+================================================================================
+
+@startuml
+participant Alice as a
+participant Bob   as b
+a ->]      : ""->]   ""
+a ->>]     : ""->>]  ""
+a -\]      : ""-\]   ""
+a -\\]     : ""-\\\\]""
+a -/]      : ""-/]   ""
+a -//]     : ""-//]  ""
+a ->x]     : ""->x]  ""
+a x->]     : ""x->]  ""
+a o->]     : ""o->]  ""
+a ->o]     : ""->o]  ""
+a o->o]    : ""o->o] ""
+a <->]     : ""<->]  ""
+a o<->o]   : ""o<->o]""
+a x<->x]   : ""x<->x]""
+a ->>o]    : ""->>o] ""
+a -\o]     : ""-\o]  ""
+a -\\o]    : ""-\\\\o]""
+a -/o]     : ""-/o]  ""
+a -//o]    : ""-//o] ""
+a x->o]    : ""x->o] ""
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))))
+
+================================================================================
+Appendix: Examples of all arrow type - Short incoming (with '?')
+================================================================================
+
+@startuml
+participant Alice as a
+participant Bob   as b
+a ->     b : //Long long label//
+?->      b : ""?->   ""
+?->>     b : ""?->>  ""
+?-\      b : ""?-\   ""
+?-\\     b : ""?-\\\\""
+?-/      b : ""?-/   ""
+?-//     b : ""?-//  ""
+?->x     b : ""?->x  ""
+?x->     b : ""?x->  ""
+?o->     b : ""?o->  ""
+?->o     b : ""?->o  ""
+?o->o    b : ""?o->o ""
+?<->     b : ""?<->  ""
+?o<->o   b : ""?o<->o""
+?x<->x   b : ""?x<->x""
+?->>o    b : ""?->>o ""
+?-\o     b : ""?-\o  ""
+?-\\o    b : ""?-\\\\o ""
+?-/o     b : ""?-/o  ""
+?-//o    b : ""?-//o ""
+?x->o    b : ""?x->o ""
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (left_io_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Appendix: Examples of all arrow type - Short outgoing (with '?')
+================================================================================
+
+@startuml
+participant Alice as a
+participant Bob   as b
+a ->     b : //Long long label//
+a ->?      : ""->?   ""
+a ->>?     : ""->>?  ""
+a -\?      : ""-\?   ""
+a -\\?     : ""-\\\\?""
+a -/?      : ""-/?   ""
+a -//?     : ""-//?  ""
+a ->x?     : ""->x?  ""
+a x->?     : ""x->?  ""
+a o->?     : ""o->?  ""
+a ->o?     : ""->o?  ""
+a o->o?    : ""o->o? ""
+a <->?     : ""<->?  ""
+a o<->o?   : ""o<->o?""
+a x<->x?   : ""x<->x?""
+a ->>o?    : ""->>o? ""
+a -\o?     : ""-\o?  ""
+a -\\o?    : ""-\\\\o?""
+a -/o?     : ""-/o?  ""
+a -//o?    : ""-//o? ""
+a x->o?    : ""x->o? ""
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name))
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))
+    (message
+      (participant
+        (name))
+      (right_io_arrow)
+      (description))))
+
+================================================================================
+Specific SkinParameter - By default
+================================================================================
+
+@startuml
+Bob -> Alice : hello
+Alice -> Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Specific SkinParameter - LifelineStrategy - nosolid (by default)
+================================================================================
+
+@startuml
+skinparam lifelineStrategy nosolid
+Bob -> Alice : hello
+Alice -> Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Specific SkinParameter - LifelineStrategy - solid
+================================================================================
+
+@startuml
+skinparam lifelineStrategy solid
+Bob -> Alice : hello
+Alice -> Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Specific SkinParameter - style strictuml
+================================================================================
+
+@startuml
+skinparam style strictuml
+Bob -> Alice : hello
+Alice -> Bob : ok
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (skinparam
+      (name)
+      (value))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Hide unlinked participant #1
+================================================================================
+
+@startuml
+participant Alice
+participant Bob
+participant Carol
+
+Alice -> Bob : hello
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
+
+================================================================================
+Hide unlinked participant #2
+================================================================================
+
+@startuml
+hide unlinked
+participant Alice
+participant Bob
+participant Carol
+
+Alice -> Bob : hello
+@enduml
+
+--------------------------------------------------------------------------------
+
+(plant_uml
+  (sequence_diagram
+    (hide
+      (value))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (participant_declaration
+      (participant
+        (name)))
+    (message
+      (participant
+        (name))
+      (right_arrow)
+      (participant
+        (name))
+      (description))))
