@@ -453,50 +453,50 @@ function i(s) {
     else return token.immediate(s);
 }
 
-function color(sw = x => x) { // sw - start_token_wrapper
+function color(w = x => x) { // w - start token wrapper is NOP or `i` <=> `token.immediate`
     return seq(
-        sw(`#`),
+        w(`#`),
         i(/[\p{ID_Start}0-9][\p{ID_Continue}0-9]*/)
     );
 }
 
-function arrow_color(sw = x => x) {
-    return seq(sw(`[`), alias(sym('arrow_color'), sym('color')), i`]`);
+function arrow_color(w = x => x) {
+    return seq(w(`[`), alias(sym('arrow_color'), sym('color')), i`]`);
 }
 
-function arrow_connect(sw = x => x) {
-    return choice(sw(`x`), sw(`o`));
+function arrow_connect(w = x => x) {
+    return choice(w(`x`), w(`o`));
 }
 
-function arrow_style({ left = false, right = false }, sw = x => x) {
+function arrow_style({ left = false, right = false }, w = x => x) {
     const style = [];
     if (left)
-        style.push(sw(`<`), sw(`<<`));
-    style.push(sw(`\\`), sw(`\\\\`), sw(`/`), sw(`//`));
+        style.push(w(`<`), w(`<<`));
+    style.push(w(`\\`), w(`\\\\`), w(`/`), w(`//`));
     if (right)
-        style.push(sw(`>`), sw(`>>`));
+        style.push(w(`>`), w(`>>`));
     return choice(...style);
 }
 
-function arrow_line(sw = x => x) {
+function arrow_line(w = x => x) {
     return choice(
         choice(
-            seq(sw(`-`), optional(arrow_color(i))),
-            seq(arrow_color(sw), i`-`),
+            seq(w(`-`), optional(arrow_color(i))),
+            seq(arrow_color(w), i`-`),
         ),
         choice(
-            seq(sw(`--`), optional(arrow_color(i))),
-            seq(sw(`-`), arrow_color(i), i`-`),
-            seq(arrow_color(sw), i`--`),
+            seq(w(`--`), optional(arrow_color(i))),
+            seq(w(`-`), arrow_color(i), i`-`),
+            seq(arrow_color(w), i`--`),
         ),
     );
 }
 
-function right_arrow(sw = x => x) {
+function right_arrow(w = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect(sw),
+                arrow_connect(w),
                 arrow_line(i),
             ),
             arrow_line(),
@@ -506,11 +506,11 @@ function right_arrow(sw = x => x) {
     );
 }
 
-function left_arrow(sw = x => x) {
+function left_arrow(w = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect(sw),
+                arrow_connect(w),
                 arrow_style({ left: true }, i),
             ),
             arrow_style({ left: true }),
@@ -520,11 +520,11 @@ function left_arrow(sw = x => x) {
     );
 }
 
-function bidi_arrow(sw = x => x) {
+function bidi_arrow(w = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect(sw),
+                arrow_connect(w),
                 arrow_style({ left: true }, i),
             ),
             arrow_style({ left: true }),
