@@ -71,7 +71,7 @@ module.exports = grammar({
         // class_diagram: $ => 'TODO class diagram', // https://plantuml.com/class-diagram'
 
         color: $ => // https://plantuml.com/color
-            color_def(),
+            color(),
 
         // command: $ => 'TODO commands', // https://plantuml.com/commons
 
@@ -202,14 +202,14 @@ module.exports = grammar({
             $.bidi_arrow,
             $.right_arrow
         ),
-        bidi_arrow: $ => bidi_arrow_def(),
-        right_arrow: $ => right_arrow_def(),
-        left_arrow: $ => left_arrow_def(),
+        bidi_arrow: $ => bidi_arrow(),
+        right_arrow: $ => right_arrow(),
+        left_arrow: $ => left_arrow(),
 
-        right_io_arrow: $ => seq(choice(left_arrow_def(), right_arrow_def(), bidi_arrow_def()), choice(i`]`, i`?`)),
-        left_io_arrow: $ => seq(choice(`[`, `?`), choice(left_arrow_def(i), right_arrow_def(i), bidi_arrow_def(i))),
+        right_io_arrow: $ => seq(choice(left_arrow(), right_arrow(), bidi_arrow()), choice(i`]`, i`?`)),
+        left_io_arrow: $ => seq(choice(`[`, `?`), choice(left_arrow(i), right_arrow(i), bidi_arrow(i))),
 
-        arrow_color: $ => color_def(i),
+        arrow_color: $ => color(i),
 
         description: $ => /[^\s][^\n]*/,
 
@@ -453,22 +453,22 @@ function i(s) {
     else return token.immediate(s);
 }
 
-function color_def(sw = x => x) { // sw - start_token_wrapper
+function color(sw = x => x) { // sw - start_token_wrapper
     return seq(
         sw(`#`),
         i(/[\p{ID_Start}0-9][\p{ID_Continue}0-9]*/)
     );
 }
 
-function arrow_color_def(sw = x => x) {
+function arrow_color(sw = x => x) {
     return seq(sw(`[`), alias(sym('arrow_color'), sym('color')), i`]`);
 }
 
-function arrow_connect_def(sw = x => x) {
+function arrow_connect(sw = x => x) {
     return choice(sw(`x`), sw(`o`));
 }
 
-function arrow_style_def({ left = false, right = false }, sw = x => x) {
+function arrow_style({ left = false, right = false }, sw = x => x) {
     const style = [];
     if (left)
         style.push(sw(`<`), sw(`<<`));
@@ -478,60 +478,60 @@ function arrow_style_def({ left = false, right = false }, sw = x => x) {
     return choice(...style);
 }
 
-function arrow_line_def(sw = x => x) {
+function arrow_line(sw = x => x) {
     return choice(
         choice(
-            seq(sw(`-`), optional(arrow_color_def(i))),
-            seq(arrow_color_def(sw), i`-`),
+            seq(sw(`-`), optional(arrow_color(i))),
+            seq(arrow_color(sw), i`-`),
         ),
         choice(
-            seq(sw(`--`), optional(arrow_color_def(i))),
-            seq(sw(`-`), arrow_color_def(i), i`-`),
-            seq(arrow_color_def(sw), i`--`),
+            seq(sw(`--`), optional(arrow_color(i))),
+            seq(sw(`-`), arrow_color(i), i`-`),
+            seq(arrow_color(sw), i`--`),
         ),
     );
 }
 
-function right_arrow_def(sw = x => x) {
+function right_arrow(sw = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect_def(sw),
-                arrow_line_def(i),
+                arrow_connect(sw),
+                arrow_line(i),
             ),
-            arrow_line_def(),
+            arrow_line(),
         ),
-        arrow_style_def({ right: true }, i),
-        optional(arrow_connect_def(i)),
+        arrow_style({ right: true }, i),
+        optional(arrow_connect(i)),
     );
 }
 
-function left_arrow_def(sw = x => x) {
+function left_arrow(sw = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect_def(sw),
-                arrow_style_def({ left: true }, i),
+                arrow_connect(sw),
+                arrow_style({ left: true }, i),
             ),
-            arrow_style_def({ left: true }),
+            arrow_style({ left: true }),
         ),
-        arrow_line_def(i),
-        optional(arrow_connect_def(i)),
+        arrow_line(i),
+        optional(arrow_connect(i)),
     );
 }
 
-function bidi_arrow_def(sw = x => x) {
+function bidi_arrow(sw = x => x) {
     return seq(
         choice(
             seq(
-                arrow_connect_def(sw),
-                arrow_style_def({ left: true }, i),
+                arrow_connect(sw),
+                arrow_style({ left: true }, i),
             ),
-            arrow_style_def({ left: true }),
+            arrow_style({ left: true }),
         ),
-        arrow_line_def(i),
-        arrow_style_def({ right: true }, i),
-        optional(arrow_connect_def(i)),
+        arrow_line(i),
+        arrow_style({ right: true }, i),
+        optional(arrow_connect(i)),
     );
 }
 
