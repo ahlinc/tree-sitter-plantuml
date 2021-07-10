@@ -447,6 +447,8 @@ module.exports = grammar({
     }
 });
 
+// Shorter wrapper on token.immediate()
+// May be called as i('token_string') or as i`token_string` for simple cases.
 function i(s) {
     if (Array.isArray(s) && s.hasOwnProperty('raw'))
         return token.immediate(s[0]);
