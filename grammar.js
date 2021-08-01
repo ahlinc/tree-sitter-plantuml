@@ -121,7 +121,7 @@ module.exports = grammar({
                         $.pragma,
                         $.duration,
                     ),
-                    '\n',
+                    $._LF,
                 )),
 
         message: $ => seq(
@@ -256,7 +256,7 @@ module.exports = grammar({
             seq('title', choice(
                 alias($.description, $.page_title),
                 seq(
-                    '\n',
+                    $._LF,
                     alias(repeat(alias($.title_description, sym('line'))), $.page_title),
                     'end', 'title',
                 ),
@@ -308,7 +308,7 @@ module.exports = grammar({
             choice(
                 seq(':', optional($.description)),
                 seq(
-                    '\n',
+                    $._LF,
                     alias(repeat(alias($.reference_description, $.line)), $.description),
                     seq('end', 'ref'),
                 ),
@@ -442,6 +442,7 @@ module.exports = grammar({
 
         // ***************************************************************************************************
 
+        _LF: $ => '\n',
         _start_uml: $ => '@startuml',
         _end_uml: $ => '@enduml',
     }
@@ -547,7 +548,7 @@ function note(begin, end, external) {
             choice(
                 seq(':', optional(sym('description'))),
                 seq(
-                    '\n',
+                    sym('_LF'),
                     alias(repeat(alias(external, sym('line'))), sym('description')),
                     end,
                 ),
